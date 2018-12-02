@@ -68,6 +68,7 @@ private static Bucket[] list;
 	}
 
 	
+	
 	private static Node traverse(Node n) {
 		Node t=n;
 		while(t.hasNext()) {
@@ -87,8 +88,6 @@ private static Bucket[] list;
 				}
 		return null;
 	}
-	
-	
 	private class Node{
 		MapElement v;
 		Node next;
@@ -104,9 +103,10 @@ private static Bucket[] list;
 		
 		boolean hasNext() {
 			return this.next!=null;
-		}	
+		}
+		
+		
 	}
-	
 	
 	private class Bucket extends Node{
 		int numItem;
@@ -115,6 +115,7 @@ private static Bucket[] list;
 			super(next);
 			numItem=0;
 		}
+		
 	}
 
 }

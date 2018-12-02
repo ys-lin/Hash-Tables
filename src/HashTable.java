@@ -3,7 +3,6 @@ public abstract class HashTable {
 protected static int capacity;
 protected int size;
 protected int collision;
-protected MapElement[] elements;
 protected static double start;
 protected static double end;
 
@@ -30,7 +29,7 @@ public static int index(int key) {
 }
 
 public static void timer(String method) {
-System.out.println(method+" runtime: "+(end-start)+" ms");
+System.out.println(method+" runtime: "+(end-start)+" ns");
 }
 
 public void printInfo() {

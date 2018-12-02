@@ -1,12 +1,16 @@
 
 public class LinearProbing extends HashTable{
+	private Bucket[] list;
 	public LinearProbing(int capacity) {
 		super(capacity);
-		elements =new MapElement[capacity];
+		list =new Bucket[capacity];
 	}
 
 	@Override
 	public int put(MapElement e) {
+		start=System.nanoTime();
+		end=System.nanoTime();
+		timer("put(e)");
 		return -1;
 		
 	}
@@ -23,4 +27,12 @@ public class LinearProbing extends HashTable{
 		return 0;
 	}
 
+	private class Bucket{
+		boolean available;
+		MapElement v;
+		Bucket(MapElement e){
+			available=false;
+			v=e;
+		}
+	}
 }

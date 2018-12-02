@@ -1,6 +1,6 @@
 
 public class QuadraticProbing extends HashTable {
-
+	private MapElement[] elements;
 	public QuadraticProbing(int capacity) {
 		super(capacity);
 		elements =new MapElement[capacity];
