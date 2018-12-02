@@ -54,6 +54,26 @@ public class LinearProbing extends HashTable{
 		}
 	}
 	
+	public int put(MapElement e) {
+		start=System.nanoTime();
+		int key =e.getKey();
+		int i=search(key);
+		if(i !=-1) {
+			int val=list[i].v.value();
+			list[i].v=e;
+			printInfo();
+			System.out.println("Number of Probing: "+prob);
+			end=System.nanoTime();
+			timer("put(k.v)");
+			return val;
+		}else {
+			insert(e);
+			printInfo();
+			end=System.nanoTime();
+			timer("put(k.v)");
+			return -1;
+		}
+	}
 	@Override
 	public int get(int key) {
 		start=System.nanoTime();

@@ -1,6 +1,7 @@
 public class QuadraticProbing extends HashTable {
 	private Bucket[] list;
 	private int prob;
+	
 	public QuadraticProbing(int capacity) {
 		super(capacity);
 		list =new Bucket[capacity];
@@ -45,6 +46,27 @@ public class QuadraticProbing extends HashTable {
 			return val;
 		}else {
 			MapElement e=new MapElement(key,value);
+			insert(e);
+			printInfo();
+			end=System.nanoTime();
+			timer("put(k.v)");
+			return -1;
+		}
+	}
+	
+	public int put(MapElement e) {
+		start=System.nanoTime();
+		int key =e.getKey();
+		int i=search(key);
+		if(i !=-1) {
+			int val=list[i].v.value();
+			list[i].v=e;
+			printInfo();
+			System.out.println("Number of Probing: "+prob);
+			end=System.nanoTime();
+			timer("put(k.v)");
+			return val;
+		}else {
 			insert(e);
 			printInfo();
 			end=System.nanoTime();

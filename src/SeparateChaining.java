@@ -6,9 +6,6 @@ private static Bucket[] list;
 		super(capacity);
 		//create a list of buckets (list of pointers to nodes only)
 		list =new Bucket[capacity];
-		for (Bucket b : list) {
-			b=new Bucket(null);
-		}
 			
 	}
 
@@ -20,14 +17,17 @@ private static Bucket[] list;
 		Node n=new Node(e,null);
 		//increment number of elements in the hash table
 		size++;
-		//if collision occurs
-		if(list[i].hasNext()) 
+		if(list[i]==null) {
+			list[i]=new Bucket(null);
+		}else if(list[i].hasNext()) //if collision occurs
 			collision++;	
 		//traverse the linked list of a specific bucket and add the node
 		traverse(list[i]).next=n;
 		printInfo();
 		//increment the number of items in the bucket list
-		System.out.println(++list[i].numItem);
+		++list[i].numItem;
+		
+		System.out.println("Number of items in bucket "+i+": "+list[i].numItem);
 	}
 	
 	@Override
@@ -38,7 +38,7 @@ private static Bucket[] list;
 			int v=find(key).v.value();
 			find(key).v.setVal(value);
 			printInfo();
-			System.out.println(list[index(key)]);
+			System.out.println("Number of items in bucket "+key+": "+list[index(key)].numItem);
 			end=System.nanoTime();
 			timer("put(k,v");
 			return v;
@@ -53,6 +53,28 @@ private static Bucket[] list;
 		
 	}
 
+	public int put(MapElement e) {
+		start=System.nanoTime();
+		int key=e.getKey();
+		if(find(key)!=null) {
+			//change the value of the k,v set
+			int v=find(key).v.value();
+			find(key).v=e;
+			printInfo();
+			System.out.println("Number of items in bucket "+key+": "+list[index(key)].numItem);
+			end=System.nanoTime();
+			timer("put(k,v");
+			return v;
+		}else {
+			//create a new k,v set
+			insert(e);
+			end=System.nanoTime();
+			timer("put(k,v)");
+			return -1;
+		}
+		
+	}
+	
 	@Override
 	public int get(int key) {
 		start=System.nanoTime();
@@ -97,7 +119,7 @@ private static Bucket[] list;
 	
 	private static Node find(int key) {
 		Node t=list[index(key)];
-		while (t.hasNext()) {
+		while (t!=null && t.hasNext()) {
 			t=t.next;
 			//if key of the map element== key
 			if (t.v.getKey()==key)
