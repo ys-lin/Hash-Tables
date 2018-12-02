@@ -38,7 +38,7 @@ public void printInfo() {
 	System.out.println("number of collisions: "+collision);
 }
 
-public abstract int put(MapElement e);
+public abstract int put(int key,int value);
 public abstract int get(int key);
 public abstract int remove(int key);
 }

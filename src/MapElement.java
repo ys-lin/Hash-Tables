@@ -9,6 +9,10 @@ public MapElement(int value) {
 	this.value=value;
 }
 
+public MapElement(int key, int value) {
+	this.key=key;
+	this.value=value;
+}
 //Casting to an Integer
 public int hashCode() {
 	return key;
@@ -20,5 +24,9 @@ public int getKey() {
 
 public int value() {
 	return value;
+}
+
+public void setVal(int val) {
+	value=val;
 }
 }

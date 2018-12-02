@@ -9,6 +9,16 @@ public class LinearProbing extends HashTable{
 	@Override
 	public int put(MapElement e) {
 		start=System.nanoTime();
+		size++;
+		int i=index(e);
+		if(list[i]==null) {
+			list[i]=new Bucket(e);
+		}else if (list[i].available) {
+			list[i].v=e;
+			list[i].available=false;
+		}else {
+			
+		}
 		end=System.nanoTime();
 		timer("put(e)");
 		return -1;

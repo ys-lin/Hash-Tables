@@ -12,9 +12,8 @@ private static Bucket[] list;
 			
 	}
 
-	@Override
-	public int put(MapElement e) {
-		start=System.nanoTime();
+	public void insert(MapElement e) {
+		
 		//find index of e using the hash function
 		int i=index(e);
 		//create a new node with value e and next point to null
@@ -29,10 +28,29 @@ private static Bucket[] list;
 		printInfo();
 		//increment the number of items in the bucket list
 		System.out.println(++list[i].numItem);
-		//return old value if old value exists, in the case of separate chaining there's no replacement of values, therefore return -1
-		end=System.nanoTime();
-		timer("put e");
-		return -1;
+	}
+	
+	@Override
+	public int put(int key, int value) {
+		start=System.nanoTime();
+		if(find(key)!=null) {
+			//change the value of the k,v set
+			int v=find(key).v.value();
+			find(key).v.setVal(value);
+			printInfo();
+			System.out.println(list[index(key)]);
+			end=System.nanoTime();
+			timer("put(k,v");
+			return v;
+		}else {
+			//create a new k,v set
+			MapElement e=new MapElement(key,value);
+			insert(e);
+			end=System.nanoTime();
+			timer("put(k,v");
+			return -1;
+		}
+		
 	}
 
 	@Override
@@ -46,7 +64,7 @@ private static Bucket[] list;
 		}
 	//else return -1
 	end=System.nanoTime();
-	timer("get(key)");
+	timer("get(k)");
 		return -1;
 	}
 
@@ -63,7 +81,7 @@ private static Bucket[] list;
 		return val;
 		}
 		end=System.nanoTime();
-		timer("remove(key)");
+		timer("remove(k)");
 		return -1;
 	}
 
@@ -118,4 +136,5 @@ private static Bucket[] list;
 		
 	}
 
+	
 }
