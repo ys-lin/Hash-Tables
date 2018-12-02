@@ -47,7 +47,7 @@ private static Bucket[] list;
 			MapElement e=new MapElement(key,value);
 			insert(e);
 			end=System.nanoTime();
-			timer("put(k,v");
+			timer("put(k,v)");
 			return -1;
 		}
 		
