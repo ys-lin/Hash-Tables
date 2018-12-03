@@ -13,47 +13,43 @@ for (int i : capacity) {
 	
 	for(int b=0;b<i;b++) {
 		e[b]=new MapElement(ran.nextInt(100));
-		System.out.println("Quadraric Probing");
+		System.out.println("\nQuadraric Probing");
 		quadra.put(e[b]);
-		System.out.println("Linear Probing");
+		System.out.println("\nLinear Probing");
 		linear.put(e[b]);
-		System.out.println("Separate Chaining");
+		System.out.println("\nSeparate Chaining");
 		sepa.put(e[b]);
 	}
 	System.out.println();
-	
+	sepa.printTable();
 	for(MapElement m: e) {
 		int key=m.getKey();
-		System.out.println("Quadraric Probing: " + quadra.get(key));
-		
-		System.out.println("Linear Probing: "+linear.get(key));
-		
-		System.out.println("Separate Chaining:"+sepa.get(key));
-		
+		System.out.println("\nQuadraric Probing" );
+		quadra.get(key);
+		System.out.println("\nLinear Probing");
+		linear.get(key);
+		System.out.println("\nSeparate Chaining");
+		sepa.get(key);
 	}
 	System.out.println();
 	for(int c=0;c<25;c++) {
-		System.out.println(c);
 		int key=e[c].getKey();
-		System.out.println("Quadraric Probing:" + quadra.remove(key));
-		
-		System.out.println("Linear Probing: " + linear.remove(key));
-		
-		System.out.println("Separate Chaining: "+sepa.remove(key));
-		
+		System.out.println("\nQuadraric Probing");
+		quadra.remove(key);
+		System.out.println("\nLinear Probing");
+		linear.remove(key);
+		System.out.println("\nSeparate Chaining");
+		sepa.remove(key);
 	}
-	int counter=0;
 	for(MapElement m: e) {
-		System.out.println(++counter);
 		int key=m.getKey();
-		System.out.println("Quadraric Probing: " + quadra.get(key));
-		
-		System.out.println("Linear Probing: "+linear.get(key));
-		
-		System.out.println("Separate Chaining: "+sepa.get(key));
-		
+		System.out.println("\nQuadraric Probing" );
+		quadra.get(key);
+		System.out.println("\nLinear Probing");
+		linear.get(key);
+		System.out.println("\nSeparate Chaining");
+		sepa.get(key);
 	}
-	
 }
 
 }

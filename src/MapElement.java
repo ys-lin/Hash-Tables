@@ -29,4 +29,8 @@ public int value() {
 public void setVal(int val) {
 	value=val;
 }
+
+public String toString() {
+	return "<"+key+","+value+">";
+}
 }

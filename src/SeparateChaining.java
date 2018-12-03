@@ -1,3 +1,10 @@
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 
 public class SeparateChaining extends HashTable{
 private static Bucket[] list;
@@ -111,7 +118,7 @@ private static Bucket[] list;
 	
 	private static Node traverse(Node n) {
 		Node t=n;
-		while(t.hasNext()) {
+		while(t!=null && t.hasNext()) {
 			t=t.next;
 		}
 		return t;
@@ -128,6 +135,34 @@ private static Bucket[] list;
 				}
 		return null;
 	}
+	
+	public void printTable() {
+		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+	              new FileOutputStream("SeperateChaining100.txt"), "utf-8"))) {
+			int counter=0;
+			for (Bucket b : list) {
+				 writer.write("index "+counter+": ");
+				Node t=b;
+				while(t!=null&&t.hasNext()) {
+					t=t.next;
+					 writer.write(t.v+"  ");
+				}
+				counter++;
+				 writer.write("\n");
+			}
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
+	}
+	
 	private class Node{
 		MapElement v;
 		Node next;
