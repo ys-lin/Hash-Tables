@@ -1,4 +1,0 @@
-HSLinear at 50: 226726 ns
-HSLinear at 75: 323678 ns
-HSLinear at 95: 307264 ns
-HSLinear at 150: 248274 ns

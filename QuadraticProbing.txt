@@ -1,4 +1,0 @@
-HSQuadratic at 50: 53348 ns
-HSQuadratic at 75: 64120 ns
-HSQuadratic at 95: 81558 ns
-HSQuadratic at 150: 154912 ns

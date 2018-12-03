@@ -1,4 +1,0 @@
-QP at 50: 48730 ns
-QP at 75: 88742 ns
-QP at 95: 86690 ns
-QP at 150: 147220 ns
