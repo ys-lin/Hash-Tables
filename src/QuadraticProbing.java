@@ -115,6 +115,10 @@ public class QuadraticProbing extends HashTable {
 		for(int a=i;a<capacity;a=(a+prob^2)%capacity) {
 			if(prob==capacity || list[a]==null)
 				return -1;
+			if(list[a].available) {
+				prob++;
+				continue;
+				}
 			if(list[a].v.getKey()==key) {
 				return a;
 				}	
