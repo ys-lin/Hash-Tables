@@ -1,0 +1,4 @@
+HSChaining at 50: 725838 ns
+HSChaining at 75: 973598 ns
+HSChaining at 95: 6434056 ns
+HSChaining at 150: 759182 ns
