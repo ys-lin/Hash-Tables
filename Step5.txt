@@ -1,0 +1,22 @@
+Question 1
+
+Overall, the times taken to put(k,v) are quite similar for LinearProving and QuadraticProbing
+with time increasing linearily as more values are inputted because there exists a greater 
+possibility of collisions, and thus, needs more time to probe. 
+
+SeparatingChaining takes the longest time out of the three approaches because it does not handle
+collisions, and thus, any values that map to the same index end up forming collisions and lengthning
+the list for that specific index. 
+
+-----------------------------------------------------------------------------------------------------
+Question 2
+
+Nothing takes an excessive amount of time. 
+
+------------------------------------------------------------------------------------------------------
+Question 3
+
+Yes, the times are overall faster for QuadraticProbing101 than the normal QuadraticProbing. 
+The reason being that since 101 is a prime number, it reduces the possibility of collisions, even though
+the capacity simply increased of 1, and thus since there should be less collisions, then the method
+does not have to probe as much, hence it takes less time to execute. 

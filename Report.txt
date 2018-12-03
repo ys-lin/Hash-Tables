@@ -1,0 +1,46 @@
+SeparateChaining at 50: 42926026 ns
+
+SeparateChaining at 75: 65405470 ns
+
+SeparateChaining at 95: 38895700 ns
+
+SeparateChaining at 100: 32863292 ns
+
+SeparateChaining at 150: 50480898 ns
+
+-----------------------------------------
+
+LinearProbing at 50: 14373136 ns
+
+LinearProbing at 75: 32979734 ns
+
+LinearProbing at 95: 33490642 ns
+
+LinearProbing at 100: 38322724 ns
+
+LinearProbing at 150: 46979436 ns
+
+-----------------------------------------
+
+QuadraticProbing at 50: 18030028 ns
+
+QuadraticProbing at 75: 18080812 ns
+
+QuadraticProbing at 95: 16143874 ns
+
+QuadraticProbing at 100: 41325080 ns
+
+QuadraticProbing at 150: 23339164 ns
+
+-----------------------------------------
+
+QuadraticProbing101 at 50: 8475124 ns
+
+QuadraticProbing101 at 75: 17279568 ns
+
+QuadraticProbing101 at 95: 15731968 ns
+
+QuadraticProbing101 at 100: 15530888 ns
+
+QuadraticProbing101 at 150: 23228876 ns
+
