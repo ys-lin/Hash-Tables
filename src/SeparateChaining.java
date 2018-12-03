@@ -1,6 +1,7 @@
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
@@ -136,9 +137,10 @@ private static Bucket[] list;
 		return null;
 	}
 	
-	public void printTable() {
-		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-	              new FileOutputStream("SeperateChaining100.txt"), "utf-8"))) {
+	public void printTable(String title, String method) {
+		try (FileWriter writer = new FileWriter(title+".txt",true)) {
+			writer.write(method+"\n");
+			writer.write("\ncapacity: "+capacity+"\n");
 			int counter=0;
 			for (Bucket b : list) {
 				 writer.write("index "+counter+": ");
@@ -149,7 +151,9 @@ private static Bucket[] list;
 				}
 				counter++;
 				 writer.write("\n");
+				
 			}
+			writer.write("-----------------------------------------------------------------------------------\n");
 	} catch (UnsupportedEncodingException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

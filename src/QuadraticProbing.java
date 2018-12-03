@@ -1,3 +1,9 @@
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+
 public class QuadraticProbing extends HashTable {
 	private Bucket[] list;
 	private int prob;
@@ -127,7 +133,31 @@ public class QuadraticProbing extends HashTable {
 		return -1;
 	}
 	
-	
+	public void printTable(String title, String method) {
+		try (FileWriter writer = new FileWriter(title+".txt",true)) {
+			writer.write(method+"\n");
+			writer.write("\ncapacity: "+capacity+"\n");
+			int counter=0;
+			for (Bucket b : list) {
+				 writer.write("index "+counter+": ");
+				 if(b!=null)
+					 	writer.write(b.v+" ");
+				 writer.write("\n");
+				counter++;
+			}
+			writer.write("-----------------------------------------------------------------------------------\n");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
+	}
 	private class Bucket{
 		boolean available;
 		MapElement v;

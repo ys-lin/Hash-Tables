@@ -33,7 +33,7 @@ System.out.println(method+" runtime: "+(end-start)+" ns");
 }
 
 public void printInfo() {
-	System.out.println("Size of the table: "+capacity);
+	System.out.println("Size of the table: "+capacity+"\n");
 	System.out.println("Number of elements: "+size);
 	System.out.println("number of collisions: "+collision);
 }
